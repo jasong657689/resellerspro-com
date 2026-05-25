@@ -282,7 +282,7 @@ footer a:hover{color:var(--text)}
 <script>
 const SUPABASE_URL='https://sufzgioxlxmffgllsuhv.supabase.co';
 const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1ZnpnaW94bHhtZmZnbGxzdWh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2MDUwODQsImV4cCI6MjA5NTE4MTA4NH0.XakTCq34H85goRwIerBU0QljnoQKNX6uythZ1nv96hg';
-const supabase=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
 function attachForm(formId,emailId,btnId,msgId){
   const form=document.getElementById(formId);
@@ -296,7 +296,7 @@ function attachForm(formId,emailId,btnId,msgId){
     if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.className='err';msg.textContent='Please enter a valid email.';return;}
     btn.disabled=true;const orig=btn.textContent;btn.textContent='Adding…';msg.textContent='';
     try{
-      const {error}=await supabase.from('waitlist').upsert({email,source:formId==='waitlist-form-2'?'landing-bottom':'landing-hero',user_agent:navigator.userAgent.slice(0,200)},{onConflict:'email'});
+      const {error}=await sb.from('waitlist').upsert({email,source:formId==='waitlist-form-2'?'landing-bottom':'landing-hero',user_agent:navigator.userAgent.slice(0,200)},{onConflict:'email'});
       if(error)throw error;
       form.style.display='none';
       msg.className='success';
