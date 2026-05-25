@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Reseller's Pro</title>
+<meta name="description" content="Frequently asked questions about Reseller's Pro — the bookkeeping tool built for eBay resellers.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' rx='9' fill='%233b82f6'/%3E%3Cpath d='M11 11 L11 29 L15 29 L15 22 L19 22 L23 29 L28 29 L23.5 21.3 C26 20.3 27.5 18.2 27.5 15.5 C27.5 12.5 25.3 11 22 11 Z M15 14.5 L21.5 14.5 C22.8 14.5 23.5 15.2 23.5 16.3 C23.5 17.4 22.8 18.1 21.5 18.1 L15 18.1 Z' fill='%230a0e17'/%3E%3Ccircle cx='30' cy='11' r='3' fill='%2310b981'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e17;--surface:#0e1420;--surface2:#141c2e;
+  --border:#253352;--border2:#2e3f60;--border-soft:rgba(255,255,255,.06);
+  --accent:#3b82f6;--accent-glow:rgba(59,130,246,.2);
+  --green:#10b981;--red:#f43f5e;--yellow:#f59e0b;
+  --text:#e6ebf2;--text2:#94a3b8;--text3:#64748b;
+  --sans:'Inter',system-ui,sans-serif;--serif:'Instrument Serif',serif;--mono:'JetBrains Mono',monospace;
+}
+html,body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:var(--accent);text-decoration:none}
+em{font-style:italic;color:var(--accent)}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 50% at 70% 0%,rgba(59,130,246,.14),transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 90%,rgba(16,185,129,.06),transparent 70%);}
+.wrap{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:24px 28px 60px}
+nav{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--border-soft);margin-bottom:60px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .mark{width:34px;height:34px;flex-shrink:0}
+.logo .name{font-weight:600;font-size:16px;letter-spacing:-.01em;color:var(--text)}
+.nav-r{display:flex;gap:18px;align-items:center}
+.nav-r a{font-size:13px;color:var(--text2);transition:color .15s}
+.nav-r a:hover{color:var(--text)}
+.nav-r a.active{color:var(--text)}
+.btn-cta{background:var(--accent);color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:500;transition:filter .15s}
+.btn-cta:hover{filter:brightness(1.1)}
+
+.hero{margin-bottom:52px}
+.eyebrow{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.18em;margin-bottom:14px;font-weight:500}
+h1{font-family:var(--serif);font-size:clamp(36px,5vw,52px);font-weight:400;line-height:1.05;letter-spacing:-.02em;margin-bottom:14px}
+.sub{font-size:16px;color:var(--text2);line-height:1.6;max-width:500px}
+
+/* Category nav */
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.cat-btn{padding:7px 16px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);transition:all .15s}
+.cat-btn.active,.cat-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* FAQ sections */
+.faq-section{margin-bottom:48px}
+.faq-section-title{font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:4px;color:var(--text)}
+.faq-section-sub{font-size:13px;color:var(--text3);margin-bottom:20px}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.faq-q{font-size:14px;font-weight:600;color:var(--text);padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .15s}
+.faq-q:hover{background:var(--surface2)}
+.faq-q-text{flex:1}
+.faq-toggle{font-size:18px;color:var(--text3);flex-shrink:0;transition:transform .2s;user-select:none}
+.faq-a{font-size:13px;color:var(--text2);line-height:1.75;padding:0 20px 18px;display:none}
+.faq-a.open{display:block}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-a a{color:var(--accent)}
+.faq-a code{font-family:var(--mono);font-size:12px;background:var(--surface2);padding:2px 6px;border-radius:4px;color:var(--text)}
+.faq-a ul{margin:10px 0 0 18px;display:flex;flex-direction:column;gap:5px}
+
+/* CTA */
+.cta-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:36px 32px;text-align:center;margin-bottom:40px}
+.cta-box h2{font-family:var(--serif);font-size:28px;font-weight:400;margin-bottom:10px}
+.cta-box p{font-size:14px;color:var(--text2);margin-bottom:22px}
+.cta-box a{display:inline-block;background:var(--accent);color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:600;transition:filter .15s}
+.cta-box a:hover{filter:brightness(1.1)}
+
+footer{padding-top:24px;border-top:1px solid var(--border-soft);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text3);flex-wrap:wrap;gap:14px}
+footer .left{display:flex;align-items:center;gap:8px}
+footer .links{display:flex;gap:20px}
+footer a{color:var(--text3);transition:color .15s}
+footer a:hover{color:var(--text)}
+
+@media(max-width:640px){
+  .wrap{padding:20px 18px 40px}
+  nav{margin-bottom:36px}
+  .nav-r a:not(.btn-cta){display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <a href="/index.html" class="logo">
+    <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="36" height="36" rx="9" fill="#3b82f6"/>
+      <path d="M11 11 L11 29 L15 29 L15 22 L19 22 L23 29 L28 29 L23.5 21.3 C26 20.3 27.5 18.2 27.5 15.5 C27.5 12.5 25.3 11 22 11 Z M15 14.5 L21.5 14.5 C22.8 14.5 23.5 15.2 23.5 16.3 C23.5 17.4 22.8 18.1 21.5 18.1 L15 18.1 Z" fill="#0a0e17"/>
+      <circle cx="30" cy="11" r="3" fill="#10b981"/>
+    </svg>
+    <div class="name">Reseller's Pro</div>
+  </a>
+  <div class="nav-r">
+    <a href="/index.html#features">Features</a>
+    <a href="/faq.html" class="active">FAQ</a>
+    <a href="/setup.html">Setup Guide</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="https://resellerspro.app" class="btn-cta">Start Free Trial →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">FAQ</div>
+  <h1>Questions,<br><em>answered.</em></h1>
+  <p class="sub">Everything you need to know about Reseller's Pro. Can't find what you're looking for? Email us at <a href="mailto:hello@resellerspro.com">hello@resellerspro.com</a>.</p>
+</div>
+
+<!-- Getting Started -->
+<div class="faq-section">
+  <div class="faq-section-title">Getting Started</div>
+  <div class="faq-section-sub">Before your first import</div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">What is Reseller's Pro?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Reseller's Pro is a bookkeeping and analytics tool built specifically for eBay resellers. It imports your eBay orders and active listings via CSV, tracks your income and expenses, and generates P&L reports, sourcing ROI analysis, platform performance breakdowns, and eBay analytics dashboards — all in one place. No spreadsheets required.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Who is this built for?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Resellers who sell on eBay and are tired of guessing their real profit. Whether you sell cards, clothing, electronics, vintage, or anything else — if you're importing from eBay, Reseller's Pro works for you. It was built by a high-volume reseller who got frustrated with spreadsheets and decided to build something better.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Do I need to know anything technical to use it?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        No. If you can download a CSV from eBay and upload a file, you're set. The setup guide walks you through every step. The whole process takes about 10 minutes to get your first two years of data loaded.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Is there a free trial?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Yes — 14 days, full access, no credit card required. Sign up at <a href="https://resellerspro.app">resellerspro.app</a> and you'll have access to every feature from day one.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- eBay Data -->
+<div class="faq-section">
+  <div class="faq-section-title">eBay Data & Imports</div>
+  <div class="faq-section-sub">Orders, listings, and analytics</div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">How do I get my eBay orders into the app?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        eBay lets you download your order history as a CSV file from Seller Hub. Here's how:
+        <ul>
+          <li>Go to <strong>eBay Seller Hub → Reports → Downloads</strong></li>
+          <li>Click <strong>Download Report → Orders → All Orders</strong></li>
+          <li>Set date range to the maximum (2 years back) and hit Download</li>
+          <li>In the app, go to <strong>eBay Orders → Import eBay Orders CSV</strong></li>
+        </ul>
+        The full walkthrough is in the <a href="/setup.html">Setup Guide</a>.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">How often should I re-import?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Once a month is the sweet spot. Re-importing is safe — the app detects duplicates by order number and item number, so it only adds new orders each time. You'll never get double-counted data.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">What about multi-item orders? Do they get double-counted?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        No — we handle this correctly. eBay's CSV includes a "summary row" for combined orders that would inflate your revenue if imported. Reseller's Pro skips those summary rows and only imports the individual item rows, so your totals are always accurate.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Can I import my active listings?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Yes. From eBay Seller Hub → Reports → Downloads, download an <strong>All Active Listings</strong> report. Import it in the app under <strong>Active Listings → Import Active Listings CSV</strong>. You'll see inventory value, watchers, expiring listings, and a keyword analysis of what's trending in your store.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Can I import my monthly eBay analytics data?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Yes. In the app under <strong>eBay Analytics → Import CSV</strong>, you can upload a spreadsheet with your monthly metrics (total sales, fees, shipping, impressions, conversion rates, etc.). Download the template first to see the exact format. You can also enter months manually using the <strong>+ Add / Edit Month</strong> button.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Income & Expenses -->
+<div class="faq-section">
+  <div class="faq-section-title">Income & Expenses</div>
+  <div class="faq-section-sub">Tracking your money</div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Can I track income from platforms other than eBay?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Yes. The Income tab lets you manually add entries or import a CSV with any platform — Mercari, Poshmark, card shows, in-person sales, whatever you do. The Platform Performance report breaks down your revenue by source so you can see which channel is actually worth your time.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">What expense categories are available?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        The app comes with sensible defaults — Shipping Supplies, eBay Fees, Sourcing, Equipment, etc. But you can fully customize the list: add your own categories, rename existing ones, and delete ones you don't use. Categories added when importing a CSV also get saved to your list automatically.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">How does the Sourcing ROI report work?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        The Sourcing ROI report matches your sourcing expenses against your revenue to show how much you're making back per dollar spent. Any expense with a category containing "Sourcing", "Inventory", "Cost of Goods", or similar keywords is counted as a sourcing expense. The report shows monthly breakdowns and an overall ROI multiplier — e.g. 2.4x means you're bringing in $2.40 for every $1 you spend sourcing.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Reports -->
+<div class="faq-section">
+  <div class="faq-section-title">Reports</div>
+  <div class="faq-section-sub">Understanding your numbers</div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">What reports are available?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Currently available:
+        <ul>
+          <li><strong>P&L Statement</strong> — revenue, expenses, and net income for any date range</li>
+          <li><strong>Balance Sheet</strong> — assets, liabilities, and net worth by month</li>
+          <li><strong>Platform Performance</strong> — revenue and transaction breakdown by sales channel</li>
+          <li><strong>Sourcing ROI</strong> — sourcing spend vs revenue with monthly ROI trend</li>
+        </ul>
+        More reports (Tax Summary, P&L Comparison, Buyer Retention) are in development.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Can I print or export reports?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Yes. Every report has a <strong>Print / PDF</strong> button that opens a clean, print-ready version in a new tab. You can print it or save it as a PDF from your browser's print dialog. Income and expense data can also be exported as CSV files for use in Excel or with your accountant.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Can I use this for taxes?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Yes, and it was designed with this in mind. The P&L Statement gives your accountant a clean summary of revenue and expenses by category. You can export all income and expense data as CSV. A dedicated Tax Summary report (formatted for Schedule C) is coming soon.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Account & Billing -->
+<div class="faq-section">
+  <div class="faq-section-title">Account & Billing</div>
+  <div class="faq-section-sub">Subscriptions, data, and security</div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Where is my data stored?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Your data is stored in Firebase — Google's cloud infrastructure — and isolated per account. Nobody else can see your data. It syncs automatically across devices so you can access it from any browser.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Can I delete my account and data?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Yes. In Settings → Profile, there's a <strong>Delete My Account</strong> button. This permanently deletes your account and all associated data from our servers. This cannot be undone.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">Can I sign in with Google?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Yes. The login screen offers "Continue with Google" as an option alongside email and password. Use whichever you prefer.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span class="faq-q-text">How do I contact support?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Email us at <a href="mailto:hello@resellerspro.com">hello@resellerspro.com</a>. Pro subscribers get priority response.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-box">
+  <h2>Still have questions?</h2>
+  <p>Email us at hello@resellerspro.com — or just try it free for 14 days and see for yourself.</p>
+  <a href="https://resellerspro.app">Start Free Trial →</a>
+</div>
+
+<footer>
+  <div class="left">
+    <svg width="20" height="20" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="36" height="36" rx="9" fill="#3b82f6"/>
+      <path d="M11 11 L11 29 L15 29 L15 22 L19 22 L23 29 L28 29 L23.5 21.3 C26 20.3 27.5 18.2 27.5 15.5 C27.5 12.5 25.3 11 22 11 Z M15 14.5 L21.5 14.5 C22.8 14.5 23.5 15.2 23.5 16.3 C23.5 17.4 22.8 18.1 21.5 18.1 L15 18.1 Z" fill="#0a0e17"/>
+      <circle cx="30" cy="11" r="3" fill="#10b981"/>
+    </svg>
+    <span>© 2026 Reseller's Pro</span>
+  </div>
+  <div class="links">
+    <a href="mailto:hello@resellerspro.com">Contact</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/setup.html">Setup Guide</a>
+  </div>
+</footer>
+
+</div>
+
+<script>
+function toggleFAQ(el){
+  const item=el.parentElement;
+  const answer=item.querySelector('.faq-a');
+  const isOpen=item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item.open').forEach(i=>{
+    i.classList.remove('open');
+    i.querySelector('.faq-a').classList.remove('open');
+  });
+  // Open this one if it wasn't open
+  if(!isOpen){
+    item.classList.add('open');
+    answer.classList.add('open');
+  }
+}
+</script>
+</body>
+</html>

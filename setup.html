@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setup Guide — Reseller's Pro</title>
+<meta name="description" content="Get started with Reseller's Pro in 10 minutes. Step-by-step guide to importing your eBay orders, listings, and analytics.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' rx='9' fill='%233b82f6'/%3E%3Cpath d='M11 11 L11 29 L15 29 L15 22 L19 22 L23 29 L28 29 L23.5 21.3 C26 20.3 27.5 18.2 27.5 15.5 C27.5 12.5 25.3 11 22 11 Z M15 14.5 L21.5 14.5 C22.8 14.5 23.5 15.2 23.5 16.3 C23.5 17.4 22.8 18.1 21.5 18.1 L15 18.1 Z' fill='%230a0e17'/%3E%3Ccircle cx='30' cy='11' r='3' fill='%2310b981'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e17;--surface:#0e1420;--surface2:#141c2e;
+  --border:#253352;--border2:#2e3f60;--border-soft:rgba(255,255,255,.06);
+  --accent:#3b82f6;--accent-glow:rgba(59,130,246,.2);
+  --green:#10b981;--red:#f43f5e;--yellow:#f59e0b;
+  --text:#e6ebf2;--text2:#94a3b8;--text3:#64748b;
+  --sans:'Inter',system-ui,sans-serif;--serif:'Instrument Serif',serif;--mono:'JetBrains Mono',monospace;
+}
+html,body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:var(--accent);text-decoration:none}
+em{font-style:italic;color:var(--accent)}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 50% at 70% 0%,rgba(59,130,246,.14),transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 90%,rgba(16,185,129,.06),transparent 70%);}
+.wrap{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:24px 28px 60px}
+nav{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--border-soft);margin-bottom:60px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .mark{width:34px;height:34px;flex-shrink:0}
+.logo .name{font-weight:600;font-size:16px;letter-spacing:-.01em;color:var(--text)}
+.nav-r{display:flex;gap:18px;align-items:center}
+.nav-r a{font-size:13px;color:var(--text2);transition:color .15s}
+.nav-r a:hover,.nav-r a.active{color:var(--text)}
+.btn-cta{background:var(--accent);color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:500;transition:filter .15s}
+.btn-cta:hover{filter:brightness(1.1)}
+
+.hero{margin-bottom:52px}
+.eyebrow{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.18em;margin-bottom:14px;font-weight:500}
+h1{font-family:var(--serif);font-size:clamp(36px,5vw,52px);font-weight:400;line-height:1.05;letter-spacing:-.02em;margin-bottom:14px}
+.sub{font-size:16px;color:var(--text2);line-height:1.6;max-width:520px}
+
+/* Time estimate pill */
+.time-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:var(--green);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:500;margin-top:18px}
+
+/* Steps */
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:24px;padding:36px 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-left{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:0}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif)}
+.step-line{width:2px;background:var(--border);flex:1;margin-top:10px;min-height:20px}
+.step:last-child .step-line{display:none}
+.step-body{flex:1;padding-top:8px}
+.step-label{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:6px}
+.step-title{font-family:var(--serif);font-size:24px;font-weight:400;margin-bottom:12px;line-height:1.2}
+.step-desc{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:0}
+.step-desc strong{color:var(--text);font-weight:600}
+.step-desc a{color:var(--accent)}
+
+/* Sub-steps */
+.substeps{margin:16px 0;display:flex;flex-direction:column;gap:10px}
+.substep{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.substep-num{width:22px;height:22px;border-radius:50%;background:var(--surface2);border:1px solid var(--border2);color:var(--text2);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.substep-text{font-size:13px;color:var(--text2);line-height:1.6}
+.substep-text strong{color:var(--text)}
+
+/* Tips */
+.tip{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:10px;padding:14px 16px;margin-top:16px;font-size:13px;color:var(--text2);line-height:1.65}
+.tip strong{color:var(--accent)}
+
+/* FAQ */
+.faq-section{margin-top:56px;margin-bottom:40px}
+.faq-section h2{font-family:var(--serif);font-size:32px;font-weight:400;margin-bottom:6px}
+.faq-section .sub2{font-size:14px;color:var(--text3);margin-bottom:28px}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.faq-q{font-size:14px;font-weight:600;color:var(--text);padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .15s}
+.faq-q:hover{background:var(--surface2)}
+.faq-toggle{font-size:18px;color:var(--text3);flex-shrink:0;transition:transform .2s}
+.faq-a{font-size:13px;color:var(--text2);line-height:1.75;padding:0 20px 18px;display:none}
+.faq-a.open{display:block}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-a ul{margin:10px 0 0 18px;display:flex;flex-direction:column;gap:5px}
+
+/* CTA */
+.cta-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:36px 32px;text-align:center;margin-bottom:40px}
+.cta-box h2{font-family:var(--serif);font-size:28px;font-weight:400;margin-bottom:10px}
+.cta-box p{font-size:14px;color:var(--text2);margin-bottom:22px}
+.cta-box a{display:inline-block;background:var(--accent);color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:600;transition:filter .15s}
+.cta-box a:hover{filter:brightness(1.1)}
+
+footer{padding-top:24px;border-top:1px solid var(--border-soft);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text3);flex-wrap:wrap;gap:14px}
+footer .left{display:flex;align-items:center;gap:8px}
+footer .links{display:flex;gap:20px}
+footer a{color:var(--text3);transition:color .15s}
+footer a:hover{color:var(--text)}
+
+@media(max-width:640px){
+  .wrap{padding:20px 18px 40px}
+  .step{gap:16px}
+  .step-num{width:36px;height:36px;font-size:15px}
+  nav{margin-bottom:36px}
+  .nav-r a:not(.btn-cta){display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <a href="/index.html" class="logo">
+    <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="36" height="36" rx="9" fill="#3b82f6"/>
+      <path d="M11 11 L11 29 L15 29 L15 22 L19 22 L23 29 L28 29 L23.5 21.3 C26 20.3 27.5 18.2 27.5 15.5 C27.5 12.5 25.3 11 22 11 Z M15 14.5 L21.5 14.5 C22.8 14.5 23.5 15.2 23.5 16.3 C23.5 17.4 22.8 18.1 21.5 18.1 L15 18.1 Z" fill="#0a0e17"/>
+      <circle cx="30" cy="11" r="3" fill="#10b981"/>
+    </svg>
+    <div class="name">Reseller's Pro</div>
+  </a>
+  <div class="nav-r">
+    <a href="/index.html#features">Features</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/setup.html" class="active">Setup Guide</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="https://resellerspro.app" class="btn-cta">Start Free Trial →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Setup Guide</div>
+  <h1>Up and running<br><em>in 10 minutes.</em></h1>
+  <p class="sub">Follow these steps after creating your account. You'll have two years of eBay data loaded and your first reports generating before your coffee gets cold.</p>
+  <div class="time-pill">⏱ About 10 minutes · No technical knowledge needed</div>
+</div>
+
+<div class="steps">
+
+  <!-- Step 1 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num">1</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="step-body">
+      <div class="step-label">First things first</div>
+      <div class="step-title">Set your business name</div>
+      <div class="step-desc">
+        Your business name shows up on every report, PDF export, and AI summary you generate. Set it once and forget it.
+        <div class="substeps">
+          <div class="substep">
+            <div class="substep-num">1</div>
+            <div class="substep-text">In the app, click <strong>Settings</strong> in the left sidebar</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">2</div>
+            <div class="substep-text">Under <strong>Profile</strong>, enter your business name in the "Business name" field</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">3</div>
+            <div class="substep-text">Click <strong>Save Profile</strong> — you'll see a green confirmation</div>
+          </div>
+        </div>
+        <div class="tip"><strong>Tip:</strong> This is optional — if you leave it blank, the app uses your display name on reports instead.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num">2</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="step-body">
+      <div class="step-label">Download from eBay</div>
+      <div class="step-title">Get your eBay orders CSV</div>
+      <div class="step-desc">
+        eBay lets you export your full order history as a CSV file. Here's where to find it.
+        <div class="substeps">
+          <div class="substep">
+            <div class="substep-num">1</div>
+            <div class="substep-text">Go to <a href="https://www.ebay.com/sh/reports/downloads" target="_blank">eBay Seller Hub → Reports → Downloads</a></div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">2</div>
+            <div class="substep-text">Click <strong>Download Report</strong></div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">3</div>
+            <div class="substep-text">Choose <strong>Orders</strong> → report type <strong>All Orders</strong></div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">4</div>
+            <div class="substep-text"><strong>Date Range:</strong> Set it as far back as eBay allows — the maximum is 2 years. This gets you the most complete history possible.</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">5</div>
+            <div class="substep-text">Hit <strong>Download</strong> and save the file to your Downloads folder</div>
+          </div>
+        </div>
+        <div class="tip"><strong>Note:</strong> The file will be named something like <code>ebay-all-orders-report-YYYY-MM-DD.csv</code>. That's the one you want.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num">3</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="step-body">
+      <div class="step-label">While you're there</div>
+      <div class="step-title">Download your active listings CSV</div>
+      <div class="step-desc">
+        While you're in eBay's Reports section, grab your active listings too. Same place, different report type.
+        <div class="substeps">
+          <div class="substep">
+            <div class="substep-num">1</div>
+            <div class="substep-text">Still in <a href="https://www.ebay.com/sh/reports/downloads" target="_blank">Seller Hub → Reports → Downloads</a></div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">2</div>
+            <div class="substep-text">Click <strong>Download Report</strong> again</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">3</div>
+            <div class="substep-text">This time choose <strong>Listing</strong> → <strong>All Active Listings</strong></div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">4</div>
+            <div class="substep-text">Hit <strong>Download</strong> — save to your Downloads folder</div>
+          </div>
+        </div>
+        <div class="tip"><strong>Tip:</strong> You'll come back here once a month to refresh both files. That's the recommended cadence — it keeps your data current without being a chore.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num">4</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="step-body">
+      <div class="step-label">Import to the app</div>
+      <div class="step-title">Upload your eBay orders</div>
+      <div class="step-desc">
+        Now import that orders CSV into the app. This is where it starts getting interesting.
+        <div class="substeps">
+          <div class="substep">
+            <div class="substep-num">1</div>
+            <div class="substep-text">In the app, click <strong>eBay Orders</strong> in the left sidebar</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">2</div>
+            <div class="substep-text">Click the green <strong>Import eBay Orders CSV</strong> button at the top right</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">3</div>
+            <div class="substep-text">Select the <code>ebay-all-orders-report-*.csv</code> file from your Downloads folder</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">4</div>
+            <div class="substep-text">Wait a moment — you'll see a green success message showing how many orders were imported</div>
+          </div>
+        </div>
+        <div class="tip"><strong>Safe to re-import:</strong> Already imported before? No problem — the app detects duplicates by order number and only adds new orders each time. You'll never get double-counted data.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num">5</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="step-body">
+      <div class="step-label">Almost there</div>
+      <div class="step-title">Upload your active listings</div>
+      <div class="step-desc">
+        Same process — this time for your listings.
+        <div class="substeps">
+          <div class="substep">
+            <div class="substep-num">1</div>
+            <div class="substep-text">Click <strong>Active Listings</strong> in the left sidebar</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">2</div>
+            <div class="substep-text">Click <strong>Import Active Listings CSV</strong> at the top right</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">3</div>
+            <div class="substep-text">Select the active listings file from your Downloads folder</div>
+          </div>
+        </div>
+        <div class="tip"><strong>What you'll see:</strong> After importing, your Active Listings tab shows total inventory value, watchers, listings expiring soon, keyword analysis of your titles, and a condition breakdown — all automatically generated from your real data.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 6 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num">6</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="step-body">
+      <div class="step-label">You're set</div>
+      <div class="step-title">Explore your reports</div>
+      <div class="step-desc">
+        With orders and listings imported, your data is live. Here's what to look at first.
+        <div class="substeps">
+          <div class="substep">
+            <div class="substep-num">→</div>
+            <div class="substep-text"><strong>Dashboard</strong> — revenue, net cash, and platform breakdown for the current period</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">→</div>
+            <div class="substep-text"><strong>Reports → P&L Statement</strong> — your profit and loss for any date range, printable</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">→</div>
+            <div class="substep-text"><strong>Reports → Platform Performance</strong> — which sales channel is actually worth your time</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">→</div>
+            <div class="substep-text"><strong>Reports → Sourcing ROI</strong> — how much you're making back per sourcing dollar</div>
+          </div>
+          <div class="substep">
+            <div class="substep-num">→</div>
+            <div class="substep-text"><strong>eBay Orders → Overview</strong> — scroll down to see every order, searchable and sortable</div>
+          </div>
+        </div>
+        <div class="tip"><strong>Monthly routine:</strong> Come back to eBay's Reports page once a month, download both CSVs again, and re-import. The app merges new data automatically — takes about 2 minutes.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2>Setup <em>questions</em></h2>
+  <p class="sub2">Common things people ask after the first import</p>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span>My orders imported but revenue looks wrong. What happened?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Check your date filter at the top of the eBay Orders page — it defaults to "This Year." If you want to see all imported orders, click "All Time." Also note that the eBay Orders revenue is separate from the Income tab — they're tracked independently.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span>Can I add income from platforms other than eBay?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Yes. Use the <strong>Income</strong> tab to add entries manually or import a CSV. The format is: Date, Platform, Description, Category, Amount. Download the template from the Income page to see an example.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span>How do I add expenses?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        Click <strong>Expenses</strong> in the left sidebar, then either: click <strong>+ Add Expense</strong> to enter one manually, or use <strong>Import CSV</strong> to upload a batch. The format is: Date, Receipt#, Description, Category, Account, Amount. Download the template to see examples.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span>I see "—" instead of item titles on some orders. Is that a bug?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        No — that's correct behavior for multi-item orders from eBay's CSV. When a buyer purchases multiple items in one transaction, eBay includes both individual item rows and a summary row. Reseller's Pro imports only the individual item rows and correctly skips the summary to prevent double-counting.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span>The Sourcing ROI report shows no data. What do I need to do?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        The Sourcing ROI report uses your expense data. Make sure you've added expenses with categories containing words like "Sourcing", "Inventory", "Cost of Goods", or "Merchandise." If you track sourcing differently, you can rename your expense categories in Settings → Categories to match.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        <span>Can I use this on my phone?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        The app works in your phone's browser — just go to <a href="https://resellerspro.app">resellerspro.app</a>. Full mobile optimization is coming in a future update.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-box">
+  <h2>Ready to get started?</h2>
+  <p>Create your free account — no credit card required. You'll have your first reports in 10 minutes.</p>
+  <a href="https://resellerspro.app">Start Free Trial →</a>
+</div>
+
+<footer>
+  <div class="left">
+    <svg width="20" height="20" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="36" height="36" rx="9" fill="#3b82f6"/>
+      <path d="M11 11 L11 29 L15 29 L15 22 L19 22 L23 29 L28 29 L23.5 21.3 C26 20.3 27.5 18.2 27.5 15.5 C27.5 12.5 25.3 11 22 11 Z M15 14.5 L21.5 14.5 C22.8 14.5 23.5 15.2 23.5 16.3 C23.5 17.4 22.8 18.1 21.5 18.1 L15 18.1 Z" fill="#0a0e17"/>
+      <circle cx="30" cy="11" r="3" fill="#10b981"/>
+    </svg>
+    <span>© 2026 Reseller's Pro</span>
+  </div>
+  <div class="links">
+    <a href="mailto:hello@resellerspro.com">Contact</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/setup.html">Setup Guide</a>
+  </div>
+</footer>
+
+</div>
+
+<script>
+function toggleFAQ(el){
+  const item=el.parentElement;
+  const answer=item.querySelector('.faq-a');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>{
+    i.classList.remove('open');
+    i.querySelector('.faq-a').classList.remove('open');
+  });
+  if(!isOpen){item.classList.add('open');answer.classList.add('open');}
+}
+</script>
+</body>
+</html>
