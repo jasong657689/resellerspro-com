@@ -52,7 +52,7 @@ h1{font-family:var(--serif);font-size:clamp(36px,5vw,56px);font-weight:400;line-
 .trial-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:var(--green);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:500;margin-bottom:32px}
 
 /* Pricing grid */
-.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:56px}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:56px}
 .plan{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px 28px;position:relative}
 .plan.featured{border-color:var(--accent);box-shadow:0 0 0 1px rgba(59,130,246,.4),0 20px 60px rgba(59,130,246,.08)}
 .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:3px 14px;border-radius:20px;letter-spacing:.04em;white-space:nowrap}
@@ -93,7 +93,7 @@ footer .links{display:flex;gap:20px}
 footer a{color:var(--text3);transition:color .15s}
 footer a:hover{color:var(--text)}
 
-@media(max-width:680px){
+@media(max-width:860px){
   .pricing-grid{grid-template-columns:1fr}
   .faq{grid-template-columns:1fr}
   .wrap{padding:20px 18px 40px}
@@ -133,57 +133,138 @@ footer a:hover{color:var(--text)}
   <span>✓</span> 14-day free trial · Full access · No credit card
 </div>
 
-<div class="pricing-grid">
+<div class="pricing-grid" style="grid-template-columns:1fr 1fr 1fr">
 
-  <!-- Free Trial -->
+  <!-- Starter -->
   <div class="plan">
-    <div class="plan-name">Free Trial</div>
+    <div class="plan-name">Starter</div>
     <div class="plan-price">
-      <div class="plan-amount">$0</div>
-      <div class="plan-period">/ 14 days</div>
+      <div class="plan-amount">$9.99</div>
+<<<<<<< HEAD
+      <div class="plan-period">/ month</div>
     </div>
-    <div class="plan-trial-note">No credit card required</div>
-    <div class="plan-desc">Full access to every feature. No limitations. No catches. See if it works for your business before you pay a cent.</div>
+    <div class="plan-trial-note">✓ Includes 14-day free trial</div>
+    <div class="plan-desc">Everything you need to track your eBay business. Perfect for solo resellers just getting started.</div>
     <ul class="features">
-      <li><span class="chk">✓</span> Import all your eBay orders (up to 2 years)</li>
-      <li><span class="chk">✓</span> Import active listings</li>
-      <li><span class="chk">✓</span> Income & expense tracking</li>
-      <li><span class="chk">✓</span> P&L reports & balance sheet</li>
+      <li><span class="chk">✓</span> eBay orders import (up to 2 years)</li>
+      <li><span class="chk">✓</span> Active listings tracking</li>
+      <li><span class="chk">✓</span> Income &amp; expense tracking</li>
+      <li><span class="chk">✓</span> P&amp;L reports &amp; balance sheet</li>
+      <li><span class="chk">✓</span> eBay Analytics dashboard</li>
+      <li><span class="chk">✓</span> CSV import &amp; export</li>
+      <li><span class="chk">✓</span> Secure cloud sync</li>
+      <li class="dim"><span class="chk">—</span> AI Assistant</li>
+      <li class="dim"><span class="chk">—</span> Multiple storefronts</li>
+    </ul>
+    <a href="https://buy.stripe.com/3cI7sK2Lm0KCgqr2UGbQY00" class="plan-btn plan-btn-secondary">Start Free Trial →</a>
+  </div>
+
+  <!-- Professional (Most Popular) -->
+  <div class="plan featured">
+    <div class="plan-badge">Most Popular</div>
+    <div class="plan-name">Professional</div>
+    <div class="plan-price">
+      <div class="plan-amount">$19.99</div>
+      <div class="plan-period">/ month</div>
+    </div>
+    <div class="plan-trial-note">✓ Includes 14-day free trial</div>
+    <div class="plan-desc">Full power for serious resellers. AI assistant, advanced reports, and priority support.</div>
+    <ul class="features">
+      <li><span class="chk">✓</span> Everything in Starter</li>
+      <li><span class="chk">✓</span> AI Assistant (50 questions/mo)</li>
       <li><span class="chk">✓</span> Platform Performance report</li>
       <li><span class="chk">✓</span> Sourcing ROI report</li>
-      <li><span class="chk">✓</span> eBay Analytics dashboard</li>
-      <li><span class="chk">✓</span> AI Assistant (50 questions/mo)</li>
-      <li><span class="chk">✓</span> CSV import & export</li>
+      <li><span class="chk">✓</span> SKU reconciliation</li>
+      <li><span class="chk">✓</span> Priority email support</li>
+      <li><span class="chk">✓</span> Every new feature as it ships</li>
+      <li class="dim"><span class="chk">—</span> Multiple storefronts</li>
+=======
+      <div class="plan-period">/ month</div>
+    </div>
+    <div class="plan-trial-note">✓ 14-day free trial included</div>
+    <div class="plan-desc">Essential tools for growing eBay resellers. Everything you need to track your business from day one.</div>
+    <ul class="features">
+      <li><span class="chk">✓</span> Unlimited active listings</li>
+      <li><span class="chk">✓</span> eBay CSV import (listings & orders)</li>
+      <li><span class="chk">✓</span> Income & expense tracking</li>
+      <li><span class="chk">✓</span> P&L report & balance sheet</li>
+      <li><span class="chk">✓</span> Platform Performance report</li>
       <li><span class="chk">✓</span> Secure cloud sync</li>
+      <li><span class="chk dim">✗</span> <span class="dim">AI Assistant</span></li>
+      <li><span class="chk dim">✗</span> <span class="dim">eBay Analytics dashboard</span></li>
+      <li><span class="chk dim">✗</span> <span class="dim">Advanced reports</span></li>
+      <li><span class="chk dim">✗</span> <span class="dim">Multiple eBay storefronts</span></li>
     </ul>
     <a href="https://resellerspro.app" class="plan-btn plan-btn-secondary">Start Free Trial</a>
   </div>
 
-  <!-- Pro -->
+  <!-- Professional -->
   <div class="plan featured">
     <div class="plan-badge">Most Popular</div>
-    <div class="plan-name">Pro</div>
+    <div class="plan-name">Professional</div>
     <div class="plan-price">
-      <div class="plan-amount">$14.99</div>
+      <div class="plan-amount">$19.99</div>
+      <div class="plan-period">/ month</div>
+    </div>
+    <div class="plan-trial-note">✓ 14-day free trial included</div>
+    <div class="plan-desc">Full toolkit for serious resellers. Every report, analytics, and AI — everything you need to run a real operation.</div>
+    <ul class="features">
+      <li><span class="chk">✓</span> Everything in Starter</li>
+      <li><span class="chk">✓</span> eBay Analytics dashboard</li>
+      <li><span class="chk">✓</span> AI Assistant (50 msgs/mo)</li>
+      <li><span class="chk">✓</span> SKU Reconciliation report</li>
+      <li><span class="chk">✓</span> Sourcing ROI report</li>
+      <li><span class="chk">✓</span> Export hub (Excel & CSV)</li>
+      <li><span class="chk">✓</span> All reports included</li>
+      <li><span class="chk">✓</span> Priority email support</li>
+      <li><span class="chk dim">✗</span> <span class="dim">Multiple eBay storefronts</span></li>
+      <li><span class="chk dim">✗</span> <span class="dim">Unlimited AI messages</span></li>
+>>>>>>> d235e5e817b88307b7df0eac7dd7ccf3527fad55
+    </ul>
+    <a href="https://buy.stripe.com/eVq14m2Lmctk3DFgLwbQY01" class="plan-btn plan-btn-primary">Start Free Trial →</a>
+  </div>
+
+  <!-- Business -->
+  <div class="plan">
+    <div class="plan-name">Business</div>
+    <div class="plan-price">
+      <div class="plan-amount">$39.99</div>
       <div class="plan-period">/ month</div>
     </div>
     <div class="plan-trial-note">✓ Includes 14-day free trial</div>
-    <div class="plan-desc">Everything in the trial, kept running. Built for resellers who are serious about knowing their real numbers.</div>
+    <div class="plan-desc">For high-volume resellers managing multiple eBay stores under one roof.</div>
     <ul class="features">
-      <li><span class="chk">✓</span> Import all your eBay orders (up to 2 years)</li>
-      <li><span class="chk">✓</span> Import active listings</li>
-      <li><span class="chk">✓</span> Income & expense tracking</li>
-      <li><span class="chk">✓</span> P&L reports & balance sheet</li>
-      <li><span class="chk">✓</span> Platform Performance report</li>
-      <li><span class="chk">✓</span> Sourcing ROI report</li>
-      <li><span class="chk">✓</span> eBay Analytics dashboard</li>
-      <li><span class="chk">✓</span> AI Assistant (50 questions/mo)</li>
-      <li><span class="chk">✓</span> CSV import & export</li>
-      <li><span class="chk">✓</span> Secure cloud sync</li>
-      <li><span class="chk">✓</span> Priority email support</li>
-      <li><span class="chk">✓</span> Every new feature as it ships</li>
+      <li><span class="chk">✓</span> Everything in Professional</li>
+      <li><span class="chk">✓</span> Multiple storefronts</li>
+      <li><span class="chk">✓</span> Per-store analytics</li>
+      <li><span class="chk">✓</span> Per-store order filtering</li>
+      <li><span class="chk">✓</span> Per-store listing tracking</li>
+      <li><span class="chk">✓</span> Storefront CSV import picker</li>
+      <li><span class="chk">✓</span> Dedicated support</li>
     </ul>
-    <a href="https://resellerspro.app" class="plan-btn plan-btn-primary">Start Free Trial →</a>
+    <a href="https://buy.stripe.com/fZubJ099K9h8b6752ObQY02" class="plan-btn plan-btn-secondary">Start Free Trial →</a>
+  </div>
+
+  <!-- Business -->
+  <div class="plan">
+    <div class="plan-name">Business</div>
+    <div class="plan-price">
+      <div class="plan-amount">$39.99</div>
+      <div class="plan-period">/ month</div>
+    </div>
+    <div class="plan-trial-note">✓ 14-day free trial included</div>
+    <div class="plan-desc">Built for high-volume resellers running a serious operation across multiple eBay stores.</div>
+    <ul class="features">
+      <li><span class="chk">✓</span> Everything in Professional</li>
+      <li><span class="chk">✓</span> Multiple eBay storefronts</li>
+      <li><span class="chk">✓</span> Unlimited AI Assistant messages</li>
+      <li><span class="chk">✓</span> Priority support</li>
+      <li><span class="chk">✓</span> Early access to new features</li>
+      <li><span class="chk">✓</span> Per-store analytics & reports</li>
+      <li><span class="chk">✓</span> Per-store inventory tracking</li>
+      <li><span class="chk">✓</span> Per-store order management</li>
+    </ul>
+    <a href="https://resellerspro.app" class="plan-btn plan-btn-secondary">Start Free Trial</a>
   </div>
 
 </div>
@@ -206,7 +287,7 @@ footer a:hover{color:var(--text)}
   </div>
   <div class="faq-item">
     <div class="faq-q">What happens when the trial ends?</div>
-    <div class="faq-a">You'll be prompted to subscribe at $14.99/month. If you don't, your data stays safe but import and sync will pause until you subscribe.</div>
+    <div class="faq-a">You'll be prompted to subscribe. If you don't, your data stays safe but import and sync will pause until you subscribe.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q">Can I cancel anytime?</div>
@@ -214,15 +295,19 @@ footer a:hover{color:var(--text)}
   </div>
   <div class="faq-item">
     <div class="faq-q">Is my data safe if I cancel?</div>
-    <div class="faq-a">Yes. Your data lives in Firebase (Google's infrastructure). Cancel and resubscribe later — everything will be exactly where you left it.</div>
+<<<<<<< HEAD
+    <div class="faq-a">Yes. Your data is stored securely in the cloud. Cancel and resubscribe later — everything will be exactly where you left it.</div>
+=======
+    <div class="faq-a">Yes. Yes. Cancel and resubscribe later — everything will be exactly where you left it. We preserve your data for 6 months after trial expiry.</div>
+>>>>>>> d235e5e817b88307b7df0eac7dd7ccf3527fad55
   </div>
   <div class="faq-item">
     <div class="faq-q">What platforms does this support?</div>
-    <div class="faq-a">Right now Reseller's Pro is built around eBay — CSV import for orders and listings. Support for Mercari, Poshmark, and other platforms is coming after launch.</div>
+    <div class="faq-a">Right now Reseller's Pro is built around eBay — CSV import for orders and listings. Support for other platforms is planned after launch.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">Do you offer annual billing or discounts?</div>
-    <div class="faq-a">Not yet, but annual billing with a discount is planned. Join the waitlist on the home page and you'll be first to know.</div>
+    <div class="faq-q">Which plan should I choose?</div>
+    <div class="faq-a">Most resellers start with Professional ($19.99/mo) for full features including AI assistant. Business ($39.99/mo) is for sellers managing multiple eBay stores.</div>
   </div>
 </div>
 
