@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reseller's Pro — The bookkeeping tool built for eBay resellers</title>
-<meta name="description" content="Stop wrestling with spreadsheets. Track listings, orders, fees, and real profit — built by a reseller, for resellers. Join the waitlist.">
+<title>Reseller's Pro — One App. All Your Reseller Data.</title>
+<meta name="description" content="One app for reseller inventory, orders, analytics, bookkeeping, reports, and AI business insights. Built by a reseller, for resellers.">
 <meta property="og:title" content="Reseller's Pro">
-<meta property="og:description" content="The bookkeeping tool built for eBay resellers. Join the waitlist.">
+<meta property="og:description" content="One app for inventory, orders, analytics, bookkeeping, reports, and AI business insights.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' rx='9' fill='%233b82f6'/%3E%3Cpath d='M11 11 L11 29 L15 29 L15 22 L19 22 L23 29 L28 29 L23.5 21.3 C26 20.3 27.5 18.2 27.5 15.5 C27.5 12.5 25.3 11 22 11 Z M15 14.5 L21.5 14.5 C22.8 14.5 23.5 15.2 23.5 16.3 C23.5 17.4 22.8 18.1 21.5 18.1 L15 18.1 Z' fill='%230a0e17'/%3E%3Ccircle cx='30' cy='11' r='3' fill='%2310b981'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,6 +89,20 @@ h1{font-family:var(--serif);font-size:clamp(40px,5.5vw,68px);font-weight:400;lin
 .feature-num{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;font-weight:500}
 .feature h3{font-family:var(--serif);font-size:28px;font-weight:400;line-height:1.1;margin-bottom:10px;color:var(--text)}
 .feature p{font-size:14px;color:var(--text2);line-height:1.6}
+.story{background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(16,185,129,.04));border:1px solid var(--border);border-radius:16px;padding:38px;margin-bottom:80px}
+.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+.story h2{font-family:var(--serif);font-size:clamp(30px,4vw,44px);font-weight:400;line-height:1.08;margin-bottom:14px}
+.story p{font-size:15px;color:var(--text2);line-height:1.75;margin-bottom:12px}
+.story-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.story-item{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:14px;font-size:13px;color:var(--text2)}
+.story-item strong{display:block;color:var(--text);font-size:14px;margin-bottom:4px}
+.tool-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:80px}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:18px 14px;text-align:center}
+.tool-icon{font-size:22px;margin-bottom:8px}.tool-card h3{font-size:13px;margin-bottom:5px}.tool-card p{font-size:11px;color:var(--text3);line-height:1.45}
+.roadmap{margin-bottom:80px}.market-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.market{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 10px;text-align:center;font-size:13px;color:var(--text2)}.market strong{display:block;color:var(--text);margin-bottom:4px}.market .live{color:var(--green);font-size:11px}.market .soon{color:var(--text3);font-size:11px}
+@media (max-width:860px){.story-grid{grid-template-columns:1fr}.tool-grid{grid-template-columns:1fr 1fr}.market-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:500px){.story{padding:24px}.story-list{grid-template-columns:1fr}.tool-grid{grid-template-columns:1fr}.market-grid{grid-template-columns:1fr 1fr}}
+
 .fimg{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px;font-size:12px}
 .fimg-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .fimg-title{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;font-weight:500}
@@ -141,9 +155,9 @@ footer a:hover{color:var(--text)}
 
 <section class="hero">
   <div>
-    <div class="eyebrow">For eBay resellers</div>
-    <h1>The bookkeeping tool you've been <em>faking with a spreadsheet.</em></h1>
-    <p class="sub">Reseller's Pro tracks your listings, orders, fees, and real profit — built by a reseller who got tired of guessing.</p>
+    <div class="eyebrow">Built by a reseller</div>
+    <h1>One App.<br>All Your <em>Reseller Data.</em></h1>
+    <p class="sub">Stop jumping between spreadsheets, Seller Hub, inventory tools, bookkeeping apps, and analytics dashboards. Reseller's Pro brings inventory, orders, analytics, bookkeeping, reports, and AI-powered business insights together in one place.</p>
     <div class="signup">
       <form class="signup-form" id="waitlist-form" autocomplete="off">
         <input type="email" id="email" placeholder="your@email.com" required>
@@ -183,21 +197,47 @@ footer a:hover{color:var(--text)}
 </section>
 
 <section class="trust">
-  <div class="trust-lbl">CSV import for eBay</div>
-  <div class="trust-item muted">Other platforms coming at launch</div>
+  <div class="trust-lbl">One platform for</div>
+  <div class="trust-item">Inventory</div>
+  <div class="trust-item">Orders</div>
+  <div class="trust-item">Analytics</div>
+  <div class="trust-item">Profit Tracking</div>
+  <div class="trust-item">Reports</div>
+  <div class="trust-item">AI Business Coach</div>
+</section>
+
+
+<section class="story">
+  <div class="story-grid">
+    <div>
+      <div class="eyebrow">Why I built it</div>
+      <h2>I got tired of reseller data living in five different places.</h2>
+      <p>Inventory in one place. Orders somewhere else. Analytics in another dashboard. Bookkeeping buried in spreadsheets.</p>
+      <p>Every time I wanted to answer a simple question like, <em>“How much did I actually make this month?”</em>, I had to jump between multiple tools.</p>
+      <p>So I built Reseller's Pro: one dashboard, one source of truth, and one app for the data that actually runs your reseller business.</p>
+    </div>
+    <div class="story-list">
+      <div class="story-item"><strong>Inventory</strong>Active listings, inventory value, watchers, age, and performance.</div>
+      <div class="story-item"><strong>Orders</strong>Import and analyze eBay orders, buyers, items, and fulfillment.</div>
+      <div class="story-item"><strong>Analytics</strong>Revenue, traffic, conversion, sourcing ROI, and performance trends.</div>
+      <div class="story-item"><strong>Bookkeeping</strong>Income, expenses, P&amp;L reports, balances, and exports.</div>
+      <div class="story-item"><strong>Reports</strong>Printable business reports for taxes, planning, and growth.</div>
+      <div class="story-item"><strong>AI Coach</strong>Ask questions about your numbers and get business insights.</div>
+    </div>
+  </div>
 </section>
 
 <section id="features">
   <div class="section-head">
     <div class="eyebrow">Features</div>
-    <h2>Everything you've been doing in <em>three different tabs.</em></h2>
+    <h2>Replace five reseller tools with <em>one dashboard.</em></h2>
   </div>
   <div class="features">
     <div class="feature">
       <div class="ftxt">
-        <div class="feature-num">01 · P&L</div>
-        <h3>Real profit, not <em>vibes.</em></h3>
-        <p>Every eBay fee, shipping cost, and sourcing price tracked automatically. You finally know what each item actually netted you — and where your time is best spent.</p>
+        <div class="feature-num">01 · Profit Tracking</div>
+        <h3>Know exactly what your business is making.</h3>
+        <p>Track revenue, expenses, fees, sourcing costs, profit, and ROI from a single dashboard. No more guessing, no more spreadsheet gymnastics.</p>
       </div>
       <div class="fimg">
         <div class="fimg-head"><div class="fimg-title">Item P&L breakdown</div></div>
@@ -210,9 +250,9 @@ footer a:hover{color:var(--text)}
     </div>
     <div class="feature reverse">
       <div class="ftxt">
-        <div class="feature-num">02 · Listings</div>
-        <h3>Spot the items <em>sitting too long.</em></h3>
-        <p>See active listings sorted by age, watchers, and views. Know what to reprice, what to relist, and what to cut your losses on.</p>
+        <div class="feature-num">02 · Inventory Intelligence</div>
+        <h3>See what is selling, sitting, and slowing you down.</h3>
+        <p>Track listing age, watchers, sell-through, inventory value, and keyword patterns so you know what to reprice, relist, source, or clear out.</p>
       </div>
       <div class="fimg">
         <div class="fimg-head"><div class="fimg-title">Active listings · sorted by age</div></div>
@@ -224,9 +264,9 @@ footer a:hover{color:var(--text)}
     </div>
     <div class="feature">
       <div class="ftxt">
-        <div class="feature-num">03 · Tax</div>
-        <h3>A reports tab your <em>accountant will love.</em></h3>
-        <p>Monthly P&L, expense categories, mileage tracking, and clean CSV exports. Hand it over and go back to sourcing.</p>
+        <div class="feature-num">03 · Reports</div>
+        <h3>Business reports without rebuilding spreadsheets.</h3>
+        <p>Generate P&amp;L statements, balance sheets, sourcing ROI, platform performance, exports, and business summaries when you need them.</p>
       </div>
       <div class="fimg">
         <div class="fimg-head"><div class="fimg-title">2025 annual report</div><div class="fimg-btn">Export CSV</div></div>
@@ -239,19 +279,49 @@ footer a:hover{color:var(--text)}
   </div>
 </section>
 
+
+<section>
+  <div class="section-head">
+    <div class="eyebrow">What it replaces</div>
+    <h2>Stop stitching your business together with <em>separate tools.</em></h2>
+  </div>
+  <div class="tool-grid">
+    <div class="tool-card"><div class="tool-icon">📊</div><h3>Spreadsheets</h3><p>Replace manual tracking and monthly cleanup.</p></div>
+    <div class="tool-card"><div class="tool-icon">📦</div><h3>Inventory Apps</h3><p>Track listings, value, age, and movement.</p></div>
+    <div class="tool-card"><div class="tool-icon">🧾</div><h3>Bookkeeping Tools</h3><p>Manage income, expenses, and reports.</p></div>
+    <div class="tool-card"><div class="tool-icon">📈</div><h3>Analytics Tabs</h3><p>Understand sales, traffic, and performance.</p></div>
+    <div class="tool-card"><div class="tool-icon">🤖</div><h3>AI Guesswork</h3><p>Ask questions using your actual business data.</p></div>
+  </div>
+</section>
+
+<section class="roadmap">
+  <div class="section-head">
+    <div class="eyebrow">Marketplace roadmap</div>
+    <h2>Built for eBay today.<br><em>Expanding tomorrow.</em></h2>
+  </div>
+  <div class="market-grid">
+    <div class="market"><strong>eBay</strong><span class="live">Available now</span></div>
+    <div class="market"><strong>Amazon</strong><span class="soon">Coming soon</span></div>
+    <div class="market"><strong>Etsy</strong><span class="soon">Coming soon</span></div>
+    <div class="market"><strong>Whatnot</strong><span class="soon">Coming soon</span></div>
+    <div class="market"><strong>Shopify</strong><span class="soon">Coming soon</span></div>
+    <div class="market"><strong>Facebook</strong><span class="soon">Coming soon</span></div>
+  </div>
+</section>
+
 <section id="faq">
   <div class="section-head"><h2>Common questions</h2></div>
   <div class="faq">
     <div class="faq-item"><div class="faq-q">Is it available now?</div><div class="faq-a">Yes — sign up and start your 14-day free trial today.</div></div>
     <div class="faq-item"><div class="faq-q">How much will it cost?</div><div class="faq-a">Plans start at $9.99/month (Starter), $19.99/month (Professional), and $39.99/month (Business). All include a 14-day free trial.</div></div>
-    <div class="faq-item"><div class="faq-q">Does it work with Mercari, Poshmark, Whatnot?</div><div class="faq-a">eBay is the starting point. Additional platforms are coming at launch — and CSV import means you can bring data in from anywhere from day one.</div></div>
-    <div class="faq-item"><div class="faq-q">Is my data safe?</div><div class="faq-a">Your data is yours. Encrypted in transit and at rest. Export anytime, cancel anytime.</div></div>
+    <div class="faq-item"><div class="faq-q">Does it support platforms besides eBay?</div><div class="faq-a">eBay is available now. Amazon, Etsy, Whatnot, Shopify, Facebook Marketplace, and other reseller platforms are on the roadmap. CSV import also lets you bring in income and expense data from other channels today.</div></div>
+    <div class="faq-item"><div class="faq-q">What makes this different from bookkeeping software?</div><div class="faq-a">Bookkeeping is only one part of Reseller's Pro. The app also handles inventory, eBay orders, listing analytics, platform performance, reports, exports, and AI-powered business insights in one place.</div></div>
   </div>
 </section>
 
 <section class="final-cta">
-  <h2>Stop guessing. <em>Start knowing.</em></h2>
-  <p>Start your 14-day free trial today. Plans from $9.99/month.</p>
+  <h2>One App. <em>All Your Data.</em></h2>
+  <p>Built by a reseller who got tired of managing inventory, orders, analytics, bookkeeping, and reports across multiple tools. Start your free trial today.</p>
   <div class="signup">
     <form class="signup-form" id="waitlist-form-2" autocomplete="off">
       <input type="email" id="email-2" placeholder="your@email.com" required>
@@ -300,7 +370,7 @@ function attachForm(formId,emailId,btnId,msgId){
       if(error)throw error;
       form.style.display='none';
       msg.className='success';
-      msg.innerHTML="✓ You're on the list. We'll be in touch when early access opens.";
+      msg.innerHTML="✓ Thanks — open the app to start your free trial.";
     }catch(err){
       console.error(err);msg.className='err';msg.textContent='Something went wrong. Try again in a moment.';btn.disabled=false;btn.textContent=orig;
     }
