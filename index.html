@@ -99,6 +99,21 @@ h1{font-family:var(--serif);font-size:clamp(40px,5.5vw,68px);font-weight:400;lin
 .tool-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:80px}
 .tool-card{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:18px 14px;text-align:center}
 .tool-icon{font-size:22px;margin-bottom:8px}.tool-card h3{font-size:13px;margin-bottom:5px}.tool-card p{font-size:11px;color:var(--text3);line-height:1.45}
+
+.free-tools{margin-bottom:80px}
+.free-tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.free-tool-card{background:linear-gradient(180deg,rgba(59,130,246,.06),rgba(255,255,255,.01));border:1px solid var(--border);border-radius:15px;padding:22px;position:relative;overflow:hidden;transition:transform .18s,border-color .18s}
+.free-tool-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.free-tool-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(59,130,246,.14),transparent 45%);pointer-events:none}
+.free-tool-card>*{position:relative;z-index:1}
+.free-tool-card .free-icon{font-size:26px;margin-bottom:12px}
+.free-tool-card h3{font-family:var(--serif);font-size:24px;font-weight:400;line-height:1.1;margin-bottom:8px;color:var(--text)}
+.free-tool-card p{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:16px}
+.free-tool-card a{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border2);color:var(--text);border-radius:9px;padding:9px 13px;font-size:12px;font-weight:600;transition:background .15s,color .15s}
+.free-tool-card a:hover{background:var(--accent);color:#fff}
+.free-tool-note{margin-top:18px;text-align:center;color:var(--text3);font-size:12px}
+@media (max-width:860px){.free-tool-grid{grid-template-columns:1fr}}
+
 .roadmap{margin-bottom:80px}.market-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.market{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 10px;text-align:center;font-size:13px;color:var(--text2)}.market strong{display:block;color:var(--text);margin-bottom:4px}.market .live{color:var(--green);font-size:11px}.market .soon{color:var(--text3);font-size:11px}
 @media (max-width:860px){.story-grid{grid-template-columns:1fr}.tool-grid{grid-template-columns:1fr 1fr}.market-grid{grid-template-columns:1fr 1fr 1fr}}
 @media (max-width:500px){.story{padding:24px}.story-list{grid-template-columns:1fr}.tool-grid{grid-template-columns:1fr}.market-grid{grid-template-columns:1fr 1fr}}
@@ -146,6 +161,7 @@ footer a:hover{color:var(--text)}
   </div>
   <div class="nav-r">
     <a href="#features">Features</a>
+    <a href="#free-tools">Free Tools</a>
     <a href="/faq.html">FAQ</a>
     <a href="/setup.html">Setup Guide</a>
     <a href="/pricing.html">Pricing</a>
@@ -299,6 +315,35 @@ footer a:hover{color:var(--text)}
   </div>
 </section>
 
+
+<section class="free-tools" id="free-tools">
+  <div class="section-head">
+    <div class="eyebrow">Free reseller tools</div>
+    <h2>Useful calculators that bring <em>the right people</em> to Reseller's Pro.</h2>
+  </div>
+  <div class="free-tool-grid">
+    <div class="free-tool-card">
+      <div class="free-icon">🧮</div>
+      <h3>eBay Fee Calculator</h3>
+      <p>Estimate eBay fees, shipping, cost of goods, profit, margin, and ROI before you list or source an item.</p>
+      <a href="/ebay-fee-calculator.html">Open calculator →</a>
+    </div>
+    <div class="free-tool-card">
+      <div class="free-icon">📈</div>
+      <h3>Reseller ROI Calculator</h3>
+      <p>See whether a thrift, auction, or marketplace buy is worth it before your cash gets tied up in inventory.</p>
+      <a href="/reseller-roi-calculator.html">Calculate ROI →</a>
+    </div>
+    <div class="free-tool-card">
+      <div class="free-icon">📦</div>
+      <h3>Sell-Through Rate Calculator</h3>
+      <p>Measure how fast inventory is moving and spot categories that deserve more buying power or markdowns.</p>
+      <a href="/sell-through-rate-calculator.html">Check sell-through →</a>
+    </div>
+  </div>
+  <div class="free-tool-note">These free tools are manual. Reseller's Pro calculates this automatically from your real orders, listings, expenses, and reports.</div>
+</section>
+
 <section class="roadmap">
   <div class="section-head">
     <div class="eyebrow">Marketplace roadmap</div>
@@ -345,6 +390,7 @@ footer a:hover{color:var(--text)}
   <div class="links">
     <a href="mailto:hello@resellerspro.com">Contact</a>
     <a href="/pricing.html">Pricing</a>
+    <a href="/ebay-fee-calculator.html">Free Tools</a>
     <a href="/faq.html">FAQ</a>
     <a href="/setup.html">Setup</a>
     <a href="#">Privacy</a>
