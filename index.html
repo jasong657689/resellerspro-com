@@ -145,6 +145,25 @@ footer a{color:var(--text3);transition:color .15s}
 footer a:hover{color:var(--text)}
 @media (max-width:860px){.hero{grid-template-columns:1fr;gap:32px}.feature{grid-template-columns:1fr;gap:20px;padding:24px}.feature.reverse .ftxt{order:0}.feature.reverse .fimg{order:0}.faq{grid-template-columns:1fr}.trust{gap:18px}}
 @media (max-width:500px){.wrap{padding:20px 18px 48px}.nav-r a{display:none}.signup-form input{font-size:13px;padding:10px}.signup-form button{padding:0 14px;font-size:12px}}
+
+/* Founder proof / honest social proof */
+.founder-results{margin:0 0 80px;background:linear-gradient(135deg,rgba(59,130,246,.10),rgba(16,185,129,.045));border:1px solid var(--border);border-radius:18px;padding:38px;position:relative;overflow:hidden}
+.founder-results::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(59,130,246,.16),transparent 42%);pointer-events:none}
+.founder-results>*{position:relative;z-index:1}
+.founder-results .section-eyebrow{font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:.18em;margin-bottom:10px;font-weight:600}
+.founder-results h2{font-family:var(--serif);font-size:clamp(30px,4vw,46px);font-weight:400;line-height:1.08;letter-spacing:-.01em;max-width:720px;margin-bottom:22px}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.result-card{background:rgba(10,14,23,.46);border:1px solid var(--border);border-radius:14px;padding:20px;min-height:190px}
+.result-number{font-family:var(--serif);font-size:42px;line-height:1;color:var(--green);margin-bottom:8px}
+.result-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px}
+.result-card p{font-size:13px;color:var(--text2);line-height:1.65}
+.founder-note{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;color:var(--text2);font-size:14px;line-height:1.75;margin-top:16px}
+.founder-note strong{color:var(--text)}
+.proof-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+.proof-pill{background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:12px;padding:12px;font-size:12px;color:var(--text2)}
+.proof-pill strong{display:block;color:var(--text);font-size:13px;margin-bottom:3px}
+@media (max-width:860px){.founder-results{padding:26px}.results-grid,.proof-strip{grid-template-columns:1fr}.result-card{min-height:auto}}
+
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXDLJ8CX5C"></script>
@@ -223,6 +242,39 @@ gtag('config', 'G-ZXDLJ8CX5C');
         <path d="M0,34 L20,28 L40,31 L60,20 L80,24 L100,17 L120,14 L140,20 L160,11 L180,15 L200,9 L220,12 L240,6" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
       </svg>
     </div>
+  </div>
+</section>
+
+
+<section class="founder-results" id="founder-results">
+  <div class="section-eyebrow">Real founder proof</div>
+  <h2>Built by a reseller. Tested on a real reseller business.</h2>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-number">$44K+</div>
+      <div class="result-title">Unlisted inventory uncovered</div>
+      <p>Reseller's Pro helped surface more than $44,000 in sourced inventory that still needed to be listed, photographed, repriced, or moved.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-number">2 Years</div>
+      <div class="result-title">eBay history analyzed</div>
+      <p>Import up to two years of eBay orders and current active listings to understand sales trends, inventory value, sourcing ROI, and performance.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-number">1 App</div>
+      <div class="result-title">Inventory, bookkeeping, reports, and AI</div>
+      <p>Instead of jumping between spreadsheets and Seller Hub, Reseller's Pro brings the numbers that run your reseller business into one dashboard.</p>
+    </div>
+  </div>
+  <div class="founder-note">
+    <strong>From the founder:</strong> "I built Reseller's Pro because I was tired of guessing what my reseller business was actually doing. I wanted one place to see inventory, orders, expenses, reports, and AI insights using my real data."
+    <br><span style="color:var(--text3)">— Jason G., eBay reseller and founder of Reseller's Pro</span>
+  </div>
+  <div class="proof-strip">
+    <div class="proof-pill"><strong>No fake reviews</strong>Founder-built and transparent.</div>
+    <div class="proof-pill"><strong>Real reseller workflow</strong>Designed around eBay CSVs, inventory, and profit.</div>
+    <div class="proof-pill"><strong>Actionable AI</strong>Ask questions about your own business data.</div>
+    <div class="proof-pill"><strong>Free trial</strong>Test it with your numbers before committing.</div>
   </div>
 </section>
 
@@ -402,8 +454,8 @@ gtag('config', 'G-ZXDLJ8CX5C');
     <a href="/ebay-fee-calculator.html">Free Tools</a>
     <a href="/faq.html">FAQ</a>
     <a href="/setup.html">Setup</a>
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
   </div>
 </footer>
 

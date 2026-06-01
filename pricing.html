@@ -87,6 +87,17 @@ footer a:hover{color:var(--text)}
   nav{margin-bottom:40px}
   .nav-r a:not(.btn-cta){display:none}
 }
+
+/* Founder trust block */
+.founder-proof{background:linear-gradient(135deg,rgba(59,130,246,.09),rgba(16,185,129,.045));border:1px solid var(--border);border-radius:16px;padding:28px;margin:-28px 0 42px;display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:center}
+.founder-proof h2{font-family:var(--serif);font-size:30px;font-weight:400;line-height:1.1;margin-bottom:10px}
+.founder-proof p{font-size:14px;color:var(--text2);line-height:1.7}
+.founder-proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.founder-proof-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px}
+.founder-proof-card strong{display:block;font-family:var(--serif);font-size:26px;font-weight:400;color:var(--green);line-height:1;margin-bottom:7px}
+.founder-proof-card span{font-size:12px;color:var(--text2);line-height:1.45}
+@media(max-width:860px){.founder-proof{grid-template-columns:1fr;margin:0 0 30px}.founder-proof-grid{grid-template-columns:1fr}}
+
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXDLJ8CX5C"></script>
@@ -127,6 +138,20 @@ gtag('config', 'G-ZXDLJ8CX5C');
 
 <div class="trial-pill" style="display:flex;margin:0 auto 48px;width:fit-content">
   <span>✓</span> 14-day free trial · Full access
+</div>
+
+
+<div class="founder-proof">
+  <div>
+    <div class="eyebrow" style="margin-bottom:10px">Built by a reseller</div>
+    <h2>Real founder proof before you pick a plan.</h2>
+    <p>Reseller's Pro was built from an actual reseller workflow: eBay orders, active listings, expenses, inventory value, analytics, reports, and AI questions that need real business data.</p>
+  </div>
+  <div class="founder-proof-grid">
+    <div class="founder-proof-card"><strong>$44K+</strong><span>Unlisted inventory opportunity uncovered in founder testing.</span></div>
+    <div class="founder-proof-card"><strong>2 yrs</strong><span>eBay order history can be imported and reviewed.</span></div>
+    <div class="founder-proof-card"><strong>1 app</strong><span>Inventory, bookkeeping, analytics, reports, and AI.</span></div>
+  </div>
 </div>
 
 <div class="pricing-grid">
