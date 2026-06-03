@@ -1,1 +1,56 @@
-<!doctype html><html><head><meta charset="utf-8"><title>News Article</title></head><body><h1>News Article</h1><p>Loading article...</p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reseller's Pro News Article</title>
+<meta name="description" content="Read the latest Reseller's Pro article.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}:root{--bg:#0a0e17;--surface:#0e1420;--surface2:#141c2e;--border:#253352;--accent:#3b82f6;--green:#10b981;--text:#e6ebf2;--text2:#94a3b8;--text3:#64748b;--red:#f43f5e}body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.7}.wrap{max-width:920px;margin:0 auto;padding:24px 22px 70px}nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0 28px}.logo{display:flex;gap:10px;align-items:center;color:var(--text);text-decoration:none;font-weight:900}.mark{width:34px;height:34px;border-radius:9px;background:var(--accent);display:grid;place-items:center;color:#07111f;font-weight:1000}.nav a{color:var(--text2);text-decoration:none;font-size:13px;font-weight:700;margin-left:16px}.nav a:hover{color:var(--text)}.btn{background:var(--accent);color:#fff!important;padding:9px 14px;border-radius:9px}.article{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:34px}.meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--text3);font-size:12px;margin-bottom:16px}.pill{background:rgba(59,130,246,.14);border:1px solid rgba(59,130,246,.3);color:#93c5fd;border-radius:99px;padding:3px 8px;font-weight:900;text-transform:uppercase;font-size:10px}h1{font-size:clamp(36px,6vw,62px);line-height:1;letter-spacing:-.04em;margin-bottom:16px}.lead{color:var(--text2);font-size:18px;margin-bottom:24px}.feature{width:100%;max-height:420px;object-fit:cover;border-radius:16px;border:1px solid var(--border);margin:8px 0 28px}.content{color:var(--text);font-size:16px}.content h2{font-size:28px;line-height:1.15;margin:30px 0 10px}.content p{margin:0 0 18px;color:var(--text2)}.content ul{margin:0 0 20px 22px;color:var(--text2)}.content li{margin:7px 0}.read{color:var(--accent);font-weight:900;text-decoration:none}.state{padding:40px;text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:14px;color:var(--text2)}footer{margin-top:46px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);color:var(--text3);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}footer a{color:var(--text3);text-decoration:none}@media(max-width:640px){.nav a:not(.btn){display:none}.article{padding:22px}h1{font-size:38px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="logo" href="/"><span class="mark">R</span><span>Reseller's Pro</span></a><div class="nav"><a href="/index.html#features">Features</a><a href="/pricing.html">Pricing</a><a href="/news/">News</a><a class="btn" href="https://app.resellerspro.com/">Open App</a></div></nav>
+<div id="article-root"><div class="state">Loading article...</div></div>
+<footer><span>© Reseller's Pro</span><span><a href="/news/">News</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/index.html">Home</a></span></footer>
+</div>
+<script>
+const SUPABASE_URL='https://sufzgioxlxmffgllsuhv.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1ZnpnaW94bHhtZmZnbGxzdWh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2MDUwODQsImV4cCI6MjA5NTE4MTA4NH0.XakTCq34H85goRwIerBU0QljnoQKNX6uythZ1nv96hg';
+function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
+function niceDate(v){try{return v?new Date(v).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'';}catch(e){return '';}}
+function formatContent(text){
+  text=String(text||'');
+  var blocks=text.split(/\n\s*\n/).map(function(b){return b.trim();}).filter(Boolean);
+  return blocks.map(function(b){
+    if(/^#\s+/.test(b))return '';
+    if(/^##\s+/.test(b))return '<h2>'+esc(b.replace(/^##\s+/,''))+'</h2>';
+    if(/^###\s+/.test(b))return '<h2>'+esc(b.replace(/^###\s+/,''))+'</h2>';
+    if(/^[-*]\s+/m.test(b))return '<ul>'+b.split(/\n/).filter(Boolean).map(function(line){return '<li>'+esc(line.replace(/^[-*]\s+/,''))+'</li>';}).join('')+'</ul>';
+    if(b.length<90&&!/[.!?]$/.test(b))return '<h2>'+esc(b)+'</h2>';
+    return '<p>'+esc(b).replace(/\n/g,'<br>')+'</p>';
+  }).join('');
+}
+async function loadArticle(){
+  var root=document.getElementById('article-root');
+  var slug=new URLSearchParams(location.search).get('slug')||'';
+  if(!slug){root.innerHTML='<div class="state">Article not found.</div>';return;}
+  try{
+    var url=SUPABASE_URL+'/rest/v1/news_posts?select=title,slug,excerpt,content,featured_image_url,category,published_at,seo_title,seo_description,tags&status=eq.published&publish_to_resellerspro=eq.true&slug=eq.'+encodeURIComponent(slug)+'&limit=1';
+    var res=await fetch(url,{headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}});
+    if(!res.ok)throw new Error(await res.text());
+    var rows=await res.json();
+    var p=rows&&rows[0];
+    if(!p){root.innerHTML='<div class="state">Article not found.</div>';return;}
+    document.title=(p.seo_title||p.title)+' — Reseller\'s Pro';
+    var md=document.querySelector('meta[name="description"]');if(md)md.setAttribute('content',p.seo_description||p.excerpt||p.title);
+    var tags='';
+    if(p.tags&&p.tags.length){tags='<div class="meta" style="margin-top:24px">'+p.tags.map(function(t){return '<span class="pill">'+esc(t)+'</span>';}).join('')+'</div>';}
+    root.innerHTML='<article class="article"><div class="meta"><span class="pill">'+esc(p.category||'News')+'</span><span>'+esc(niceDate(p.published_at))+'</span></div><h1>'+esc(p.title)+'</h1>'+(p.excerpt?'<p class="lead">'+esc(p.excerpt)+'</p>':'')+(p.featured_image_url?'<img class="feature" src="'+esc(p.featured_image_url)+'" alt="">':'')+'<div class="content">'+formatContent(p.content||'')+'</div>'+tags+'<p style="margin-top:30px"><a class="read" href="/news/">← Back to News</a></p></article>';
+  }catch(e){root.innerHTML='<div class="state" style="color:var(--red)">Could not load article: '+esc(e.message||e)+'</div>';}
+}
+loadArticle();
+</script>
+</body>
+</html>
