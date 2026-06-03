@@ -13,4 +13,26 @@
 <section class="hero"><div class="eyebrow">News & Updates</div><h1>Reseller growth guides, product updates, and eBay business strategy.</h1><p class="sub">Fresh articles from Reseller's Pro covering inventory health, dead inventory, analytics, profit tracking, sourcing, and smarter reseller operations.</p></section>
 <div id="news-grid" class="grid"><div class="state">Loading articles...</div></div>
 <footer><span>© Reseller's Pro</span><span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/index.html">Home</a></span></footer>
-</div><script src="/news/news.js"></script></body></html>
+</div>
+<script>
+const SUPABASE_URL='https://sufzgioxlxmffgllsuhv.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1ZnpnaW94bHhtZmZnbGxzdWh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2MDUwODQsImV4cCI6MjA5NTE4MTA4NH0.XakTCq34H85goRwIerBU0QljnoQKNX6uythZ1nv96hg';
+function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
+function dt(v){try{return v?new Date(v).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'';}catch(e){return '';}}
+async function loadNews(){
+ var grid=document.getElementById('news-grid');
+ try{
+  var url=SUPABASE_URL+'/rest/v1/news_posts?select=title,slug,excerpt,featured_image_url,category,published_at&status=eq.published&publish_to_resellerspro=eq.true&order=published_at.desc';
+  var res=await fetch(url,{headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}});
+  if(!res.ok)throw new Error(await res.text());
+  var posts=await res.json();
+  if(!posts.length){grid.innerHTML='<div class="state">No published articles yet.</div>';return;}
+  grid.innerHTML=posts.map(function(p){
+    var link='/news/post.html?slug='+encodeURIComponent(p.slug);
+    return '<article class="card"><a class="thumb" href="'+link+'">'+(p.featured_image_url?'<img src="'+esc(p.featured_image_url)+'" alt="">':'Reseller\'s Pro News')+'</a><div class="body"><div class="meta"><span class="pill">'+esc(p.category||'News')+'</span><span>'+esc(dt(p.published_at))+'</span></div><h2><a href="'+link+'">'+esc(p.title)+'</a></h2><p>'+esc(p.excerpt||'')+'</p><a class="read" href="'+link+'">Read article →</a></div></article>';
+  }).join('');
+ }catch(e){grid.innerHTML='<div class="state" style="color:var(--red)">Could not load news posts: '+esc(e.message||e)+'</div>';}
+}
+loadNews();
+</script>
+</body></html>
